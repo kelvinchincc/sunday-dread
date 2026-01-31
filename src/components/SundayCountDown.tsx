@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { Counter } from "./Counter";
 import type { Dayjs } from "dayjs";
+import { CiCalendarDate } from "react-icons/ci";
 
 interface SundayCountDownProps {
   now: Dayjs;
@@ -39,16 +40,26 @@ export function SundayCountDown({ now, isTodaySunday }: SundayCountDownProps) {
       </div>
       <footer className="text-xs flex flex-col gap-2 items-center">
         {showCurrentDate && (
-          <div>
-            <p>Now: {now.format("DD MMM YYYY HH:mm:ss")}</p>
-            <p>Next Sunday: {nextSunday.format("DD MMM YYYY HH:mm:ss")}</p>
+          <div className="grid grid-cols-[auto_auto_1fr] gap-1">
+            <p>Now </p>
+            <p>:</p>
+            <p>{now.format("DD MMM YYYY hh:mm:ss A")}</p>
+
+            <p>Next Sunday</p>
+            <p>:</p>
+            <p>{nextSunday.format("DD MMM YYYY hh:mm:ss A")}</p>
           </div>
         )}
-
-        <button className="btn btn-primary btn-outline" onClick={() => setShowCurrentDate((prev) => !prev)}>
-          {showCurrentDate ? "Hide" : "Show"} Date
-        </button>
       </footer>
+
+      <div
+        className="tooltip tooltip-left absolute right-5 bottom-5"
+        data-tip={`${showCurrentDate ? "Hide" : "Show"} Current Date`}
+      >
+        <button className="btn btn-primary btn-circle" onClick={() => setShowCurrentDate((prev) => !prev)}>
+          <CiCalendarDate size={22} />
+        </button>
+      </div>
     </>
   );
 }
