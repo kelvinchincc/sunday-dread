@@ -29,8 +29,8 @@ export function SundayCountDown({ now, isTodaySunday }: SundayCountDownProps) {
     "second",
   );
   const nextSundayDiffHoursInTotal = nextSunday.diff(now, "hour");
-  const sundayNear = nextSundayDiffHoursInTotal <= 6;
-  const sundayHappeningSoon = nextSundayDiffHoursInTotal <= 1;
+  const sundayNear = nextSundayDiffHoursInTotal < 6;
+  const sundayHappeningSoon = nextSundayDiffHoursInTotal < 1;
 
   const renderTitle = () => {
     if (now.day() === 1 && now.hour() < 12) {

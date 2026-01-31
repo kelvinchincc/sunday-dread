@@ -18,8 +18,8 @@ export function MondayCountDown({ now }: MondayCountDownProps) {
     "second",
   );
 
-  const isMondayNear = hoursUntilMonday <= 6;
-  const isMondayHappeningSoon = hoursUntilMonday <= 1;
+  const isMondayNear = hoursUntilMonday < 6;
+  const isMondayHappeningSoon = hoursUntilMonday < 1;
 
   const renderTitle = () => {
     if (isMondayHappeningSoon) {
