@@ -33,6 +33,10 @@ export function SundayCountDown({ now, isTodaySunday }: SundayCountDownProps) {
   const sundayHappeningSoon = nextSundayDiffHoursInTotal <= 1;
 
   const renderTitle = () => {
+    if (now.day() === 1 && now.hour() < 12) {
+      return <h1 className="text-center text-5xl">See you next Sunday! 😭</h1>;
+    }
+
     if (sundayHappeningSoon) {
       return <h1 className="text-center text-5xl">STAY CALM, IT'S HAPPENING!</h1>;
     }
