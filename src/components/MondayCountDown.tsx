@@ -27,10 +27,10 @@ export function MondayCountDown({ now }: MondayCountDownProps) {
     }
 
     if (isMondayNear) {
-      return <h1 className="text-center text-5xl">Brace Yourself, Monday is Near...</h1>;
+      return <h1 className="text-center text-5xl text-gray-400 italic">Brace Yourself, Monday is Near...</h1>;
     }
 
-    return <h1 className="text-center text-5xl">🎉 Happy Sunday! 🎉</h1>;
+    return <h1 className="text-center text-5xl text-yellow-500 drop-shadow-lg">🎉 Happy Sunday! 🎉</h1>;
   };
 
   return (

@@ -38,11 +38,11 @@ export function SundayCountDown({ now, isTodaySunday }: SundayCountDownProps) {
     }
 
     if (sundayHappeningSoon) {
-      return <h1 className="text-center text-5xl">STAY CALM, IT'S HAPPENING!</h1>;
+      return <h1 className="text-center text-5xl text-red-500 animate-bounce">STAY CALM, IT'S HAPPENING!</h1>;
     }
 
     if (sundayNear) {
-      return <h1 className="text-center text-5xl">Almost There...</h1>;
+      return <h1 className="text-center text-5xl text-gray-400 italic">Almost There...</h1>;
     }
 
     return <h1 className="text-center text-5xl">Is It Sunday Yet?</h1>;

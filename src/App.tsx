@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { MondayCountDown } from "./components/MondayCountDown";
 import { SundayCountDown } from "./components/SundayCountDown";
 
-const getNow = () => dayjs().day(0).add(3, "hour");
+const getNow = () => dayjs();
 
 function App() {
   const [now, setNow] = useState(getNow());
