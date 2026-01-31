@@ -28,10 +28,25 @@ export function SundayCountDown({ now, isTodaySunday }: SundayCountDownProps) {
     now.add(nextSundayDiffDay, "day").add(nextSundayDiffHour, "hour").add(nextSundayDiffMinute, "minute"),
     "second",
   );
+  const nextSundayDiffHoursInTotal = nextSunday.diff(now, "hour");
+  const sundayNear = nextSundayDiffHoursInTotal <= 6;
+  const sundayHappeningSoon = nextSundayDiffHoursInTotal <= 1;
+
+  const renderTitle = () => {
+    if (sundayHappeningSoon) {
+      return <h1 className="text-center text-5xl">STAY CALM, IT'S HAPPENING!</h1>;
+    }
+
+    if (sundayNear) {
+      return <h1 className="text-center text-5xl">Almost There...</h1>;
+    }
+
+    return <h1 className="text-center text-5xl">Is It Sunday Yet?</h1>;
+  };
 
   return (
     <>
-      <h1 className="text-center text-5xl">My Happy Sunday Still Have</h1>
+      {renderTitle()}
       <div className="flex gap-3">
         <Counter value={nextSundayDiffDay} label="Days" />
         <Counter value={nextSundayDiffHour} label="Hours" />

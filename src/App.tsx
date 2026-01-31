@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="h-dvh grid place-items-center">
       <main className="flex flex-col gap-5 items-center">
-        <SundayCountDown now={now} isTodaySunday={isTodaySunday} />
+        {isTodaySunday || <SundayCountDown now={now} isTodaySunday={isTodaySunday} />}
       </main>
     </div>
   );
